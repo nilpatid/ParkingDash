@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html style="width: 98%;">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Parking - Dashboard</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<script src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="https://davidlynch.org/projects/maphilight/jquery.maphilight.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<style>
+.imgA1 { position:absolute; top: 0px; left: 0px; z-index: 1; } 
+	</style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a class="navbar-brand" href="#">Smart<span>Parking</span></a>
+				<span id="capgeminiCarWithRoad"></span>
+				<span id="capgeminiLogo"></span>
+			</div>
+							
+		</div>
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar sidenav" style="width :"250px">
+	<span style="font-size:18px;cursor:pointer;color: #ffffff; padding-left:15px;" onclick="closeNav()">&#9776; Menu</span>
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		<ul id="dasboardLeftNav" class="nav menu">
+			
+			<li id="configTab" class="active"><a> Configuration</a></li>
+			<li id="parkingTab"><a>Parking Lot</a></li>
+			
+			
+			
+		</ul>
+		<div class="attribution" style="color: #ffffff;">Powered by <br><span style="font-size:23px;cursor:pointer;color: #30a5ff;">PREDIX</span></div>
+	</div>
+	<!--	
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#" id="configTab"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Configuration</a></li>
+		<a href="#" id="parkingTab"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Parking Lot</a></li>
+  <div class="attribution">Developed by <a href="#">CASCADE Team</a></div>
+</div> -->
+
+		
+	<div>			
+	<span style="font-size: 18px;cursor:pointer;color: #ffffff;padding-left: 15px;" onclick="openNav()">&#9776; Menu</span>
+		
+		
+		<div class="row">	
+			<div class="col-lg-12">
+				
+				<div id="configurationContainer" style="display: block;">
+					<div class="container">
+						<div class="configContainer">
+							<div class="pageHeader">
+								Configuration
+							</div>
+							<div class="pageBody">
+								<div id="BlockDetails">
+									<select id="blockId" class="blockDropDown">
+									</select>
+									<span class="detailsBlock location">
+				
+									</span>
+									<span class="detailsBlock plots">
+				
+									</span>
+								</div>
+								<div class="blockContainer" style="display:none;">
+								</div>
+								<div class="actionContainer" style="display:none;">
+									<div class="smallButtons greyBtn">
+										<button onclick="resetConfiguration();"> Reset </button>
+									</div>
+									<div class="smallButtons">
+										<button onclick="saveConfiguration();"> Save </button>
+									</div>
+			
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="parkinglotContainer" >
+					<div class="container">
+						<!--
+						<div  class="newParkingLot">
+								<img src="images/E_Block.png" class="plots">
+								<img src="images/car.png" id="E1" class="plot1"  style="z-index: 1; ">
+								<img src="images/car.png" id="E2" class="plot1"  style="z-index: 1; ">
+								<img src="images/car.png" id="E3" class="plot1"  style="z-index: 1; ">
+							</div>
+						-->
+						
+						
+							<div class="plots imgA1"  style="z-index: 1; ">
+								<img src="images/E_Block_1.png" class="img img-responsive">	
+							</div>
+							<div class="plot1"  style="z-index: 1; position:absolute; top: 252px; left: 198px;  width: 35px;">
+								<div><img src="images/available.png" id="E1" style="height: 30px"></div>
+							</div>
+							<div class="plot2"  style="z-index: 1; position:absolute; top: 286px; left: 198px;  width: 35px;">
+								<div ><img src="images/No_not.png" id="E2" style="height: 30px"></div>
+							</div>
+							<div class="plot1"  style="z-index: 1; position:absolute; top: 413px; left: 198px;  width: 35px;">
+								<div><img src="images/No_not.png" id="E27" style="height: 30px"></div>
+							</div>
+							<div class="plot2"  style="z-index: 1; position:absolute; top: 448px; left: 198px;  width: 35px;">
+								<div ><img src="images/No_not.png" id="E28" style="height: 30px"></div>
+							</div>
+							<div class="plot3"  style="z-index: 1; position:absolute; top: 484px; left: 198px; width: 35px;">
+								<div><img src="images/No_not.png" id="E3" style="height: 30px"></div>
+							</div>
+							<div class="plot4"  style="z-index: 1; position:absolute; top: 531px; left: 200px; width: 35px;">
+								<div ><img src="images/No_not.png" id="E4" style="height: 30px"></div>
+							</div>
+							<div class="plot5"  style="z-index: 1; position:absolute; top: 235px;left: 313px;width: 35px;">
+								<div><img src="images/No_not.png" id="E5" style="height: 30px"></div>
+							</div>
+							<div class="plot6"  style="z-index: 1; position:absolute; top: 338px;left: 313px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E6" style="height: 30px"></div>
+							</div>
+							<div class="plot7"  style="z-index: 1; position:absolute; top: 377px;left: 313px;width: 35px;">
+								<div><img src="images/No_not.png" id="E7" style="height: 30px"></div>
+							</div>
+							<div class="plot8"  style="z-index: 1; position:absolute; top: 420px;left: 313px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E8" style="height: 30px"></div>
+							</div>
+							<div class="plot9"  style="z-index: 1; position:absolute; top: 465px;left: 313px;width: 35px;">
+								<div><img src="images/No_not.png" id="E9" style="height: 30px"></div>
+							</div>
+							<div class="plot10"  style="z-index: 1; position:absolute; top: 513px;left: 313px;width: 35px;">
+								<div><img src="images/No_not.png" id="E10" style="height: 30px"></div>
+							</div>
+							<div class="plot11"  style="z-index: 1; position:absolute; top: 554px;left: 313px;width: 35px;">
+								<div><img src="images/No_not.png" id="E11" style="height: 30px"></div>
+							</div>
+							<div class="plot12"  style="z-index: 1; position:absolute; top: 235px;left: 405px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E12" style="height: 30px"></div>
+							</div>
+							<div class="plot13"  style="z-index: 1; position:absolute; top: 338px;left: 385px;width: 35px;">
+								<div  ><img src="images/No_not.png" id="E13" style="height: 30px"></div>
+							</div>
+							<div class="plot14"  style="z-index: 1; position:absolute; top: 377px;left: 385px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E14" style="height: 30px"></div>
+							</div>
+							<div class="plot15"  style="z-index: 1; position:absolute; top: 420px;left: 385px;width: 35px;">
+								<div  ><img src="images/No_not.png" id="E15" style="height: 30px"></div>
+							</div>
+							<div class="plot16"  style="z-index: 1; position:absolute; top: 465px;left: 385px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E16" style="height: 30px"></div>
+							</div>
+							<div class="plot17"  style="z-index: 1; position:absolute; top: 513px;left: 385px;width: 35px;">
+								<div  ><img src="images/No_not.png" id="E17" style="height: 30px"></div>
+							</div>
+							<div class="plot18"  style="z-index: 1; position:absolute; top: 554px;left: 385px;width: 35px;">
+								<div ><img src="images/No_not.png" id="E18" style="height: 30px"></div>
+							</div>
+							<div class="plot19"  style="z-index: 1; position:absolute; top: 235px; left: 487px; width: 35px;">
+								<div><img src="images/No_not.png" id="E19" style="height: 30px"></div>
+							</div>
+							<div class="plot20"  style="z-index: 1; position:absolute; top: 293px; left: 487px; width: 35px;">
+								<div ><img src="images/No_not.png" id="E20" style="height: 30px"></div>
+							</div>
+							<div class="plot21"  style="z-index: 1; position:absolute; top: 335px; left: 487px; width: 35px;">
+								<div><img src="images/No_not.png" id="E21" style="height: 30px"></div>
+							</div>
+							<div class="plot22"  style="z-index: 1; position:absolute; top: 381px; left: 487px; width: 35px;">
+								<div ><img src="images/No_not.png" id="E22" style="height: 30px"></div>
+							</div>
+							<div class="plot23"  style="z-index: 1; position:absolute; top: 424px; left: 487px; width: 35px;">
+								<div><img src="images/No_not.png" id="E23" style="height: 30px"></div>
+							</div>
+							<div class="plot24"  style="z-index: 1; position:absolute; top: 471px; left: 487px; width: 35px;">
+								<div ><img src="images/No_not.png" id="E24" style="height: 30px"></div>
+							</div>
+							<div class="plot25"  style="z-index: 1; position:absolute; top: 515px; left: 487px; width: 35px;">
+								<div><img src="images/No_not.png" id="E25" style="height: 30px"></div>
+							</div>
+							<div class="plot26"  style="z-index: 1; position:absolute; top: 558px; left: 487px;  width: 35px;">
+								<div><img src="images/No_not.png" id="E26" style="height: 30px"></div>
+							</div>
+							<!--<div class="plot1"  style="z-index: 1; position:absolute; top: 332px; left: 282px;  width: 152px;">
+								<div><img src="images/blank.png" id="blanksspace1" style="height: 256px;width: 152px;"></div>
+							</div>
+							<div class="plot1"  style="z-index: 1; position:absolute; top: 219px; left: 282px;  width: 284px;">
+								<div><img src="images/blank.png" id="blanksspace2" style="height: 65px;width: 293px;"></div>
+							</div>-->
+					</div>		
+					<div class="legends">					
+					<p style="font-size: 20px;font-weight: bold;">Legends :</p>
+					<div><img src="images/1484683382_car.png" id="E26" style="height: 30px"> Parking not available</div>
+					<div><div style="background-color: rgba(242, 242, 242, 0.02);width: 0px;height: 10px;margin-left:auto;margin-right: 3px;padding: 4px 15px;display: inline;border: 1px solid #bdc1d1;"></div>Parking available</div>
+					<div><img src="images/No_not.png" id="E26" style="height: 30px">Smart Parking installation in progress</div>
+					</div>
+				</div>
+			</div>
+		</div>
+								
+		
+	</div>	<!--/.main-->
+
+
+	<script src="js/script.js"></script>
+
+
+	<script>
+		
+	</script>	
+</body>
+
+</html>
+

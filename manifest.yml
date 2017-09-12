@@ -1,0 +1,8 @@
+
+---
+applications:
+  - name: ParkingDashBoard
+    buildpack: staticfile_buildpack
+    memory: 512M
+    timeout : 180
+

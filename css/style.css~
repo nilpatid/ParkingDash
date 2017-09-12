@@ -1,0 +1,171 @@
+
+body{
+	background: #f7f3f3;
+}
+.container {
+	 width: 100%;
+	 height: 100%;
+	}
+	
+.parkingLot {
+    height: 70%;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    top: 17%;
+    box-shadow: 0px 0px 4px #ccc;
+}
+.parkingArea {
+	width: 31%;
+	display: inline-block;
+	/* border: 1px solid #ccc; */
+	height: 46%;
+	box-shadow: 0px 0px 4px #ccc;
+	margin: 0.8% 1%;
+	/* margin-right: 1%; */
+}
+.available {
+	background: #c3ec6a;
+}
+.unavailable {
+box-shadow: none;
+background: rgba(8, 8, 8, 0.51);
+opacity: 0.5;
+}
+span.plotLabel {
+    font-family: sans-serif;
+    float: right;
+    /* padding: 5%; */
+    color: #666666;
+    font-size: 24px;
+    position: relative;
+    top: 0.2em;
+    right: 0.8em;
+}
+span.carIcon {
+    height: 75%;
+    width: 75%;
+    background-image: url("../images/1484683382_car.png");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+span.noIcon{
+  height: 75%;
+    width: 75%;
+    display: inline-block;
+}
+.parkingArea span {
+    margin-top: 6%;
+    margin-left: 6%;
+}
+.configContainer{
+	width: 84%;
+    height: 100%;
+    margin-left: 8%;
+    box-shadow: 0px 0px 4px #ccc;
+    background: #ffffff;
+}
+.pageHeader {
+    line-height: 3em;
+    padding-left: 20px;
+    font-family: Segoe ui;
+    font-size: 20px;
+    color: #2167a5;
+}
+#BlockDetails{
+    padding: 0 20px;
+}
+select.configDropDown, select.blockDropDown {
+    height: 2em;
+    display: block;
+    margin: 10px 0px;
+    width: 100%;
+    border-color: #ccc;
+	font-family: Segoe ui;
+}
+.block>span {
+    display: inline-block;
+    width: 30%;
+}
+span.labelText {
+    /* line-height: 3em; */
+    padding-left: 0px;
+    font-family: Segoe ui;
+    font-size: 14px;
+    color: #666666;
+}
+.block>span {
+    display: inline-block;
+    width: 30%;
+    margin-right: 3em;
+}
+.block {
+    box-shadow: none;
+    padding: 5px 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    background: #fbfbfb;
+}
+select#blockId {
+    width: auto;
+}
+#BlockDetails>span {
+    display: inline-block;
+    width: 20%;
+    margin-right: 3em;
+}
+span.keyText {
+    font-family: segoe ui;
+    color: #908f8f;
+    font-size: 12px;
+    padding-right: 10px;
+}
+span.valueText{
+  font-family: segoe ui;
+    color: #3c3c3c;
+    font-size: 12px;
+}
+/*.block:hover, .block.selected{
+box-shadow: 0px 0px 4px #ccc;
+ background: #ffffff;
+}*/
+.blockContainer {
+    padding-bottom:40px;	
+    border-bottom: 1px solid #f7f1f1;
+        margin: 0 20px;
+}
+.actionContainer {
+    padding: 20px;
+    float: left;
+    display: block;
+}
+.smallButtons {
+    /* height: 2em; */
+    width: auto;
+    /* line-height: 2em; */
+    margin-right: 10px;
+    display: inline-block;
+}
+.smallButtons>button {
+    background: #fff;
+    border: #ccc;
+    line-height: 2em;
+}
+.smallButtons>button {
+    background: #3a84c5;
+    border: #2167a5;
+    line-height: 2em;
+    color: #fff;
+    font-size: 14px;
+    font-family: segoe ui;
+    padding: 0 10px;
+    cursor: pointer;
+}
+.greyBtn>button {
+    background: #4d4d4d;
+}
+#parkinglotContainer,#configurationContainer{
+display:none;
+}
+
